@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   # GET /users
   # GET /users.json
   def index
@@ -18,7 +19,16 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(params[:user])
+
+    params_to_save = {
+      name:                   params[:name],
+      email:                  params[:email],
+      password:               params[:password],
+      password_confirmation:  params[:password_confirmation]
+    }
+
+    # @user = User.new(params[:user])
+    @user = User.new(params_to_save)
 
     if @user.save
       render json: @user, status: :created, location: @user

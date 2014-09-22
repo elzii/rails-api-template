@@ -813,3 +813,142 @@ Started GET "/users" for 127.0.0.1 at 2014-09-22 14:43:35 -0700
 Processing by UsersController#index as HTML
   [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
 Completed 200 OK in 12ms (Views: 7.6ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-09-22 14:44:47 -0700
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"Alexander", "email"=>"alex@fiftyandfifty.org"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 11ms (Views: 0.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-09-22 14:45:07 -0700
+Processing by UsersController#create as */*
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 5ms (Views: 0.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-09-22 14:46:03 -0700
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"Alexander"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 7ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-09-22 14:49:10 -0700
+
+ActionController::RoutingError (undefined method `respond_to' for UsersController:Class):
+  app/controllers/users_controller.rb:2:in `<class:UsersController>'
+  app/controllers/users_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.1ms)
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (9.3ms)
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (41.6ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-09-22 14:49:21 -0700
+
+ActionController::RoutingError (undefined method `respond_to' for UsersController:Class):
+  app/controllers/users_controller.rb:2:in `<class:UsersController>'
+  app/controllers/users_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.2ms)
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (25.7ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-09-22 14:49:22 -0700
+
+ActionController::RoutingError (undefined method `respond_to' for UsersController:Class):
+  app/controllers/users_controller.rb:2:in `<class:UsersController>'
+  app/controllers/users_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.0ms)
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.2ms)
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (30.4ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-09-22 14:52:39 -0700
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"Alexander"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 21ms (Views: 0.3ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-09-22 14:53:01 -0700
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"Alexander"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 27ms (Views: 0.3ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-09-22 14:53:58 -0700
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"Alexander"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 20ms (Views: 0.3ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-09-22 14:54:19 -0700
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"Alexander Zizzo", "email"=>"alex@fiftyandfifty.org", "password"=>"xapapx01"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('alex@fiftyandfifty.org') LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "password_digest", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2014-09-22 21:54:19.294308"], ["email", "alex@fiftyandfifty.org"], ["name", "Alexander Zizzo"], ["password_digest", "$2a$10$xXqrela7bx9kQHPH3qm8qO93g4tz66Oqus8TDU9lfnYimOMPhcpv."], ["updated_at", "2014-09-22 21:54:19.294308"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Completed 201 Created in 95ms (Views: 2.1ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-09-22 14:54:29 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-09-22 14:54:40 -0700
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"Alexander Zizzo", "email"=>"alex@fiftyandfifty.org"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('alex@fiftyandfifty.org') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 7ms (Views: 0.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-09-22 14:55:31 -0700
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"Alexander Zizzo", "email"=>"alex@fiftyandfifty.org"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('alex@fiftyandfifty.org') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 6ms (Views: 0.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-09-22 14:55:47 -0700
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-09-22 14:55:48 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.2ms)
