@@ -1,0 +1,106 @@
+// _draw.scss
+
+$pixel_size : 5px;
+
+/*            [1]  red, 
+              [2]  mustardgreen, 
+              [3]  gold, 
+              [4]  peach, 
+              [5]  orangered, 
+              [6]  black, 
+              [7]  green-samus,
+              [8]  blue-megaman,
+              [9]  lightblue - megaman
+              [10] white
+              [11] skin
+              [12] yellow - triforce
+              [13] green - link
+              [14] brown - link
+              [15] orange - duckhunt
+              [16] offwhite
+              [17] lightlink - kirby
+              [18] pink - kirby
+              [19] darkgreen - battletoads
+              [20] darkgold - battletoads
+              [21] redbrown - peach
+              [22] pink - peach
+
+              [23] COLOR - 
+              [24] COLOR - 
+              [25] COLOR - 
+              [26] COLOR - 
+              [27] COLOR - 
+              [28] COLOR - 
+
+              
+*/
+
+$colors     : #D80000 
+              #706800 
+              #F8AB00 
+              #FFA542 
+              #e52a17 
+              #000000 
+              #52b63c
+              #1152d8 
+              #2cead4 
+              #ffffff 
+              #fddf9c
+              #f5f52b
+              #157711
+              #732e0d 
+              #e55c25 
+              #f0f0f0 
+              #ee97a8 
+              #e63d78 
+              #18550f
+              #946216
+              #7f160d
+              #f85091;
+              
+
+
+
+
+/*
+ * Draw Mixin for create box-shadows
+ */
+@mixin draw ($pixels) {
+
+  $shadow: 0 0 0;
+  $row_number: 1;
+
+  $height_appx: 0;
+  $width_appx:  0;
+
+  @each $row in $pixels {
+    $column_number: -8; // Center for better rotateY effect
+    
+    $height_appx: $height_appx +1;
+
+    @each $color_index in $row {
+      @if ($color_index > 0){
+        $shadow: $shadow, $column_number * $pixel_size $row_number * $pixel_size nth($colors, $color_index);
+      }
+      $column_number: $column_number + 1;
+    }
+    $row_number: $row_number + 1;
+    $width_appx: $width_appx + 1;
+  }
+
+  & {
+    display:inline-block;
+    position:relative;
+    box-shadow: $shadow;
+  }
+  &, &:before, &:after  {
+    margin-bottom: #{$height_appx * $pixel_size};
+    // margin-left: -#{($width_appx * $pixel_size / 2)};
+    height: $pixel_size;
+    width: $pixel_size;
+  } 
+  &:before, &:after  {
+    margin: 0 auto;
+  }
+
+}

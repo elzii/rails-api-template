@@ -1,0 +1,8 @@
+### delete a db
+
+rake db:reset
+rake db:drop:all
+
+### install rspec
+
+rails g rspec:install
