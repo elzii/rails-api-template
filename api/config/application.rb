@@ -19,5 +19,15 @@ module Coolbetz
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+    # 
+    
+    config.secret_token = 'd21ce62e5c6e212114b958da42b6af65dcb3b2d1a8edbc581695f91a26eb455f43ddc17b4c25d2386d5445f584ac0c8204e3c47c62b7edd08b55fc9a207f4912'
+
+    config.time_zone = 'UTC'
+    
+    config.autoload_paths << "#{Rails.root}/app/helpers"
+
+
+
   end
 end
