@@ -952,3 +952,573 @@ Started GET "/users" for 127.0.0.1 at 2014-09-22 14:55:48 -0700
 Processing by UsersController#index as HTML
   [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
 Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users/" for 127.0.0.1 at 2014-09-22 16:55:08 -0700
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"", "email"=>"elzi", "password"=>"xapapx01", "password_confirmation"=>""}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('elzi') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 215ms (Views: 2.1ms | ActiveRecord: 5.1ms)
+
+
+Started POST "/users/" for 127.0.0.1 at 2014-09-22 16:55:22 -0700
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"", "email"=>"elzi", "password"=>"xapapx01", "password_confirmation"=>""}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('elzi') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 93ms (Views: 0.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-09-22 16:56:33 -0700
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"Alexander Zizzo", "email"=>"alex@fiftyandfifty.org"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('alex@fiftyandfifty.org') LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 10ms (Views: 0.5ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/users/" for 127.0.0.1 at 2014-09-22 16:57:44 -0700
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"", "email"=>"elzi", "password"=>"xapapx01", "password_confirmation"=>""}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('elzi') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 80ms (Views: 0.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/" for 127.0.0.1 at 2014-09-22 16:58:58 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 11ms (Views: 9.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/?callback=jQuery111108923050372395664_1411430400990&name=&email=elzi&password=xapapx01&password_confirmation=&_=1411430400991" for 127.0.0.1 at 2014-09-22 17:00:02 -0700
+Processing by UsersController#index as */*
+  Parameters: {"callback"=>"jQuery111108923050372395664_1411430400990", "name"=>"", "email"=>"elzi", "password"=>"xapapx01", "password_confirmation"=>"", "_"=>"1411430400991"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users"
+Completed 200 OK in 4ms (Views: 2.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/?callback=jQuery11110870983445784077_1411430442135&name=&email=elzi&password=xapapx01&password_confirmation=&_=1411430442136" for 127.0.0.1 at 2014-09-22 17:00:43 -0700
+Processing by UsersController#index as */*
+  Parameters: {"callback"=>"jQuery11110870983445784077_1411430442135", "name"=>"", "email"=>"elzi", "password"=>"xapapx01", "password_confirmation"=>"", "_"=>"1411430442136"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.5ms)
+
+
+Started OPTIONS "/users/" for 127.0.0.1 at 2014-09-22 17:00:57 -0700
+
+ActionController::RoutingError (No route matches [OPTIONS] "/users"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/elzi/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/elzi/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/elzi/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.3ms)
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (13.4ms)
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (58.0ms)
+
+
+Started POST "/users/" for 127.0.0.1 at 2014-09-22 17:01:17 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"name"=>"", "email"=>"elzi", "password"=>"xapapx01", "password_confirmation"=>""}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('elzi') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 83ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+
+
+Started OPTIONS "/users/" for 127.0.0.1 at 2014-09-22 17:02:10 -0700
+
+ActionController::RoutingError (No route matches [OPTIONS] "/users"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/elzi/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/elzi/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/elzi/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.9ms)
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.1ms)
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (31.6ms)
+
+
+Started OPTIONS "/users/" for 127.0.0.1 at 2014-09-22 17:05:00 -0700
+
+ActionController::RoutingError (No route matches [OPTIONS] "/users"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/elzi/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/elzi/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/elzi/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.9ms)
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (16.3ms)
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (47.6ms)
+
+
+Started GET "/users/" for 127.0.0.1 at 2014-09-22 17:05:25 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-09-22 17:05:27 -0700
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.3ms)
+
+
+Started OPTIONS "/users/" for 127.0.0.1 at 2014-09-22 17:05:34 -0700
+
+ActionController::RoutingError (No route matches [OPTIONS] "/users"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/elzi/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/elzi/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/elzi/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.7ms)
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.5ms)
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (31.4ms)
+
+
+Started POST "/users/" for 127.0.0.1 at 2014-09-22 17:05:44 -0700
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"", "email"=>"elzi", "password"=>"xapapx01", "password_confirmation"=>""}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('elzi') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 100ms (Views: 0.2ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/users/" for 127.0.0.1 at 2014-09-22 17:06:40 -0700
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"", "email"=>"elzi", "password"=>"xapapx01", "password_confirmation"=>""}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('elzi') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 103ms (Views: 0.2ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/users/" for 127.0.0.1 at 2014-09-22 17:10:19 -0700
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"", "email"=>"elzi", "password"=>"xapapx01", "password_confirmation"=>""}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('elzi') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 184ms (Views: 0.4ms | ActiveRecord: 3.6ms)
+
+
+Started POST "/users/" for 127.0.0.1 at 2014-09-22 17:10:21 -0700
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"", "email"=>"elzi", "password"=>"xapapx01", "password_confirmation"=>""}
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('elzi') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 83ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users/" for 127.0.0.1 at 2014-09-22 17:10:56 -0700
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"", "email"=>"elzi", "password"=>"xapapx01", "password_confirmation"=>""}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('elzi') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 94ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users/" for 127.0.0.1 at 2014-09-22 17:12:06 -0700
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"", "email"=>"elzi", "password"=>"xapapx01", "password_confirmation"=>""}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (0.8ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('elzi') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 84ms (Views: 0.2ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users/" for 127.0.0.1 at 2014-09-22 17:13:04 -0700
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"", "email"=>"elzi", "password"=>"xapapx01", "password_confirmation"=>""}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (1.4ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('elzi') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 94ms (Views: 0.3ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/users/" for 127.0.0.1 at 2014-09-22 17:13:12 -0700
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"", "email"=>"elzi", "password"=>"xapapx01", "password_confirmation"=>""}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('elzi') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 88ms (Views: 0.3ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/users/" for 127.0.0.1 at 2014-09-22 17:13:45 -0700
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"", "email"=>"elzi", "password"=>"xapapx01", "password_confirmation"=>""}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('elzi') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 84ms (Views: 0.2ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/users/" for 127.0.0.1 at 2014-09-22 17:13:52 -0700
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"", "email"=>"elzi", "password"=>"xapapx01", "password_confirmation"=>""}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('elzi') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 84ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users/" for 127.0.0.1 at 2014-09-22 17:13:58 -0700
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"", "email"=>"elzi", "password"=>"xapapx01", "password_confirmation"=>""}
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('elzi') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 86ms (Views: 0.2ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/users/" for 127.0.0.1 at 2014-09-22 17:15:46 -0700
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"", "email"=>"elzi", "password"=>"xapapx01", "password_confirmation"=>""}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('elzi') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 85ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users/" for 127.0.0.1 at 2014-09-22 17:15:54 -0700
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"", "email"=>"elzi", "password"=>"xapapx01", "password_confirmation"=>""}
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('elzi') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 84ms (Views: 0.2ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/users/" for 127.0.0.1 at 2014-09-22 17:16:15 -0700
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"", "email"=>"elzi", "password"=>"xapapx01", "password_confirmation"=>""}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.8ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('elzi') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 86ms (Views: 0.2ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users/" for 127.0.0.1 at 2014-09-22 20:12:52 -0700
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"", "email"=>"elzi", "password"=>"xapapx01", "password_confirmation"=>""}
+  [1m[36m (2.7ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('elzi') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 128ms (Views: 3.5ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/users/" for 127.0.0.1 at 2014-09-22 20:12:55 -0700
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"", "email"=>"elzi", "password"=>"xapapx01", "password_confirmation"=>""}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('elzi') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 81ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users/" for 127.0.0.1 at 2014-09-22 20:13:00 -0700
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"Alejandro", "email"=>"elzi", "password"=>"xapapx01", "password_confirmation"=>""}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('elzi') LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 105ms (Views: 0.2ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/users/" for 127.0.0.1 at 2014-09-22 20:17:03 -0700
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"", "email"=>"elzi", "password"=>"xapapx01", "password_confirmation"=>""}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('elzi') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 84ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/" for 127.0.0.1 at 2014-09-22 20:19:16 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 60ms (Views: 53.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/" for 127.0.0.1 at 2014-09-22 20:19:53 -0700
+Processing by UsersController#index as */*
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users"
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/users/" for 127.0.0.1 at 2014-09-22 20:19:59 -0700
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"", "email"=>"elzi", "password"=>"xapapx01", "password_confirmation"=>""}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('elzi') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 84ms (Views: 0.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/" for 127.0.0.1 at 2014-09-22 20:20:03 -0700
+Processing by UsersController#index as */*
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/" for 127.0.0.1 at 2014-09-23 09:47:22 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (34.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 69ms (Views: 29.2ms | ActiveRecord: 34.2ms)
+
+
+Started POST "/users/" for 127.0.0.1 at 2014-09-23 09:47:25 -0700
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"", "email"=>"elzi", "password"=>"xapapx01", "password_confirmation"=>""}
+  [1m[35m (4.9ms)[0m  begin transaction
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('elzi') LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 114ms (Views: 0.3ms | ActiveRecord: 5.3ms)
+
+
+Started POST "/users/" for 127.0.0.1 at 2014-09-23 09:48:08 -0700
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"", "email"=>"elzi", "password"=>"xapapx01", "password_confirmation"=>""}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('elzi') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 95ms (Views: 0.3ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users/" for 127.0.0.1 at 2014-09-23 09:48:12 -0700
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"asd", "email"=>"elzi", "password"=>"xapapx01", "password_confirmation"=>""}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('elzi') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 90ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/" for 127.0.0.1 at 2014-09-23 09:48:14 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/" for 127.0.0.1 at 2014-09-23 09:48:21 -0700
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"", "email"=>"elzi", "password"=>"xapapx01", "password_confirmation"=>""}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('elzi') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 91ms (Views: 0.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/" for 127.0.0.1 at 2014-09-23 09:48:37 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/" for 127.0.0.1 at 2014-09-23 09:48:47 -0700
+Processing by UsersController#index as */*
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users/" for 127.0.0.1 at 2014-09-23 09:48:49 -0700
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"", "email"=>"elzi", "password"=>"xapapx01", "password_confirmation"=>""}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('elzi') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 84ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-09-23 10:36:51 -0700
+
+ActionController::RoutingError (undefined method `http_basic_authenticate_with' for UsersController:Class):
+  app/controllers/users_controller.rb:3:in `<class:UsersController>'
+  app/controllers/users_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.4ms)
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (29.7ms)
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (94.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-09-23 10:38:49 -0700
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users"
+Completed 200 OK in 20ms (Views: 11.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-09-23 10:39:01 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 15ms (Views: 9.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-09-23 10:39:02 -0700
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-09-23 10:39:09 -0700
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 6ms
+
+NoMethodError (undefined method `authenticate_or_request_with_http_basic' for #<UsersController:0x007f9d95319658>):
+  app/controllers/application_controller.rb:12:in `authentication_check'
+
+
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.3ms)
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (28.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-09-23 10:39:15 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 9ms (Views: 5.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-09-23 10:39:19 -0700
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+Completed 200 OK in 11ms (Views: 6.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-09-23 10:39:20 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-09-23 10:39:44 -0700
+
+ActionController::RoutingError (undefined method `http_basic_authenticate_with' for ApplicationController:Class):
+  app/controllers/application_controller.rb:3:in `<class:ApplicationController>'
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/users_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.2ms)
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.6ms)
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (36.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-09-23 10:39:45 -0700
+
+ActionController::RoutingError (undefined method `http_basic_authenticate_with' for ApplicationController:Class):
+  app/controllers/application_controller.rb:3:in `<class:ApplicationController>'
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/users_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.9ms)
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.0ms)
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (27.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-09-23 10:45:12 -0700
+
+ActionController::RoutingError (undefined method `devise' for #<Class:0x007fc1584f6a48>):
+  app/models/user.rb:11:in `<class:User>'
+  app/models/user.rb:1:in `<top (required)>'
+  app/controllers/application_controller.rb:3:in `<class:ApplicationController>'
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/users_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (7.9ms)
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (28.4ms)
+  Rendered /Users/elzi/.rvm/gems/ruby-2.1.2@global/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (133.9ms)

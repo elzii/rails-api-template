@@ -1,13 +1,17 @@
 source 'https://rubygems.org'
 
+# Core
 gem 'rails', '4.1.6'
-
 gem 'rails-api'
 gem 'sqlite3'
 
+# Security / Authentication
+gem 'devise' 
 gem 'bcrypt'
+gem 'rack-cors'
+gem 'simple_token_authentication'
 
-
+# Development
 group :development, :test do
   gem 'rspec-rails'
   gem 'spring'
