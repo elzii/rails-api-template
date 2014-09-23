@@ -17,6 +17,9 @@ var App;
     App.config = {
 
         environment : (window.location.href.match(/(localhost)/g) ? 'development' : 'production' ),
+
+        api_url     : (window.location.href.match(/(localhost)/g) ? 'http://localhost:3000/' : 'http://localhost:3000/' ),
+
         debug: true,
 
         media_queries : {
@@ -34,11 +37,7 @@ var App;
         modal               : $('.modal'),
         modal_bay           : $('#modals'),
 
-        form                : $('#form-signup'),
-        form_submit         : $('#form-submit'),
-        form_text           : $('#form-text'),
-        form_confirmation   : $('#form-confirmation'),
-        form_error          : $('#form-error'),
+        form                : $('#signup'),
         
         video_box           : $('.video-box'),
 
@@ -60,12 +59,13 @@ var App;
         App.scroll();
         App.modals();
         App.animations();
-        App.signupForm();
         App.videoPlayer();
         App.addThis();
         App.konamiCode();
 
-        App.helpers.inputPlaceholders();
+        // App.helpers.inputPlaceholders();
+        App.createUser();
+        App.listUsers();
     
     };
 
@@ -322,85 +322,56 @@ var App;
 
 
     /**
-     * signupForm
+     * createUser
      * @return {[type]}
      */
-    App.signupForm = function() {
+    App.createUser = function() {
 
-        App.$el.form.submit(function (event) {
+        App.$el.form.submit(function (form) {
 
             event.preventDefault();
 
+            var $this       = $(this),
+                form_data   = $this.serialize();
 
-            if ( !validate_email() ) {
-                App.$el.form.find('#EMAIL').focus();
-                App.$el.form.find('#EMAIL').parent().addClass('error');
-                form_error('The email you entered is invalid.  Please use a valid email address.');
-            }
-            else if ( !validate_bank() ) {
-                App.$el.form.find('#BANK').focus();
-                App.$el.form.find('#BANK').parent().addClass('error');
-                form_error('You must select a financial institution.');
-            }
-
-            if ( validate_email() && validate_bank() ) {
-                $.post( $(this).attr("action"), $(this).serialize(), function(){
-                    form_success();
-                });
-            }
+            $.ajax({
+                url: App.config.api_url+'users/',
+                type: 'POST',
+                data: form_data
+            })
+            .done(function (data, textStatus, xhr) {
+                console.log('SUCCESS ->', data, textStatus, xhr)
+            })
+            .fail(function (data) {
+                console.log("ERROR ->", data.status, data.statusText);
+                $('#output--create_user').html(prettyPrint(data.responseJSON));
+            })
+            
         });
 
-        App.$el.form.find('input, select').focus(function() { $(this).parent().addClass('focus'); })
-        App.$el.form.find('input, select').blur(function() { 
+    }
 
-            if ( validate_email() ) {
-                App.$el.form.find('#EMAIL').parent().removeClass('error');
-                App.$el.form_error.removeClass('show shakeFast');
-            }
-            if ( validate_bank() ) {
-                App.$el.form.find('#BANK').parent().removeClass('error');
-                App.$el.form_error.removeClass('show shakeFast');
-            }
+
+
+
+    /**
+     * listUsers
+     * @return {[type]}
+     */
+    App.listUsers = function() {
+
+        $.ajax({
+            url: App.config.api_url+'users/',
+            type: 'GET'
         })
-        App.$el.form.find('#BANK').change(function() {
-            if ( validate_bank() ) {
-                App.$el.form.find('#BANK').parent().removeClass('error');
-                App.$el.form_error.removeClass('show shakeFast');
-            }
-        });
-
-        function validate_email() {
-            var x = App.$el.form.find('#EMAIL').val();
-            var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            var valid = re.test(x);
-
-            return valid;
-        }
-        function validate_bank() {
-            var x = document.forms["form-signup"]["BANK"].value;
-            if ( x == 0 ) {
-                return false;
-            } else {
-                return true;
-            }
-        }
-
-        function form_error(message) {
-            App.$el.form_error.addClass('show animated animated-250 shakeFast');
-            setTimeout(function() {
-                App.$el.form_error.removeClass('shakeFast');
-            }, 250)
-            App.$el.form_error.empty().append(message);
-        }
-
-        function form_success() {
-            App.$el.form.addClass('animated animated-500 fadeOutDown');
-
-            setTimeout(function() {
-                App.$el.form_confirmation.show();
-                App.$el.form_confirmation.find('.form-confirmation__content').addClass('animated animated-show fadeInUp');
-            }, 900)
-        }
+        .done(function (data, textStatus, xhr) {
+            console.log('SUCCESS ->', data, textStatus, xhr)
+            $('#output--list_users').html(prettyPrint(data));
+        })
+        .fail(function (data) {
+            console.log("ERROR ->", data.status, data.statusText);
+            $('#output--list_users').html(prettyPrint(data));
+        })
 
     }
 
